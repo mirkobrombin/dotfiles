@@ -21,8 +21,8 @@ function M.Show_custom_palette()
     -- E
 
     -- F
-    { "Find and Replace in Current Directory", ":Telescope live_grep" },
-    { "Find and Replace in Current File", ":%s/old/new/g" },
+    { "Find Word in Current Directory", ":Telescope live_grep" },
+    { "Find and Replace in Current File", ":lua require('functions/find-replace').find_and_replace()" },
 
     -- G
 
@@ -45,6 +45,8 @@ function M.Show_custom_palette()
 
     -- N
     { "New File", ":enew" },
+    { "New File in Current Path", ":lua require('functions/files').create_new_file()" },
+    { "New File Picking the Path", ":lua require('functions/files').create_file_with_telescope()" },
     { "New Terminal", ":split | terminal" },
 
     -- O
