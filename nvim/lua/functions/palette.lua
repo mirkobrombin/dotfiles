@@ -36,7 +36,17 @@ function M.Show_custom_palette()
 
     -- L
     { "LazyVim Extra", ":LazyExtras" },
-    { "LazyGit", ":LazyGit" },
+    {
+      "LazyGit",
+      function()
+        vim.cmd("LazyGit")
+        vim.defer_fn(function()
+          if not vim.bo.filetype == "lazygit" then
+            vim.cmd("LazyGit")
+          end
+        end, 200)
+      end,
+    },
 
     -- M
     {
@@ -62,6 +72,9 @@ function M.Show_custom_palette()
     { "Quit All Without Saving", ":qa!" },
 
     -- R
+    { "Remove All Comments", ":lua require('functions/coding').remove_all_comments()" },
+    { "Remove Comment at Line", ":lua require('functions/coding').remove_comment_at_line()" },
+    { "Remove Comment Block", ":lua require('functions/coding').remove_comment_block()" },
 
     -- S
     { "Save All Files", ":wa" },
