@@ -35,18 +35,9 @@ function M.Show_custom_palette()
     -- K
 
     -- L
+    { "Lazy (Install and Update)", ":Lazy" },
     { "LazyVim Extra", ":LazyExtras" },
-    {
-      "LazyGit",
-      function()
-        vim.cmd("LazyGit")
-        vim.defer_fn(function()
-          if not vim.bo.filetype == "lazygit" then
-            vim.cmd("LazyGit")
-          end
-        end, 200)
-      end,
-    },
+    { "LazyGit", ":LazyGit" },
 
     -- M
     {
