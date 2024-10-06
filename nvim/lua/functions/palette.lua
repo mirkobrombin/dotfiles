@@ -36,6 +36,7 @@ function M.Show_custom_palette()
 
     -- L
     { "LazyVim Extra", ":LazyExtras" },
+    { "LazyGit", ":LazyGit" },
 
     -- M
     {
