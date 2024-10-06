@@ -71,6 +71,12 @@ function M.Show_custom_palette()
 
     -- T
     { "Toggle Notes", ":lua require('functions/notes').toggle_notes()" },
+    {
+      "Toggle Outline",
+      function()
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Space>cs", true, false, true), "m", false)
+      end,
+    },
 
     -- U
     { "Undo Make Float", ":lua require('toggleterm.terminal').Terminal:close_all()" },
