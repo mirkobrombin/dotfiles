@@ -6,26 +6,34 @@ function M.Show_custom_palette()
     -- A
 
     -- B
-    { "Backup Current File", ":lua require('functions/backup').backup_file()" },
+    { "Buffers: Delete All Buffers", ":bufdo bd" },
+    { "Backup: Backup Current File", ":lua require('functions/backup').backup_file()" },
 
     -- C
-    { "Select All and Copy", ":lua vim.cmd('normal! ggVGy')" },
-    { "Create New Note", ":lua require('functions/notes').new_note()" },
+    { "Comments: Remove All Comments", ":lua require('functions/coding').remove_all_comments()" },
+    { "Comments: Remove Comment at Line", ":lua require('functions/coding').remove_comment_at_line()" },
+    { "Comments: Remove Comment Block", ":lua require('functions/coding').remove_comment_block()" },
 
     -- D
-    { "Dashboard", ":Dashboard" },
-    { "Delete All Buffers", ":bufdo bd" },
-    { "Delete Current File", ":lua vim.fn.delete(vim.fn.expand('%')) | bdelete!" },
-    { "Delete Note", ":lua require('functions/notes').delete_note()" },
-    { "Diagnostics", ":Trouble diagnostics toggle" },
+    { "Dashboard: Open Dashboard", ":Dashboard" },
+    { "Diagnostics: Show Diagnostics", ":Trouble diagnostics toggle" },
 
     -- E
+    { "Edit: Select All and Copy", ":lua vim.cmd('normal! ggVGy')" },
 
     -- F
-    { "Find Word in Current Directory", ":Telescope live_grep" },
-    { "Find and Replace in Current File", ":lua require('functions/find-replace').find_and_replace()" },
+    { "Files: Delete Current File", ":lua vim.fn.delete(vim.fn.expand('%')) | bdelete!" },
+    { "Files: New File", ":enew" },
+    { "Files: New File in Current Path", ":lua require('functions/files').create_new_file()" },
+    { "Files: New File Picking the Path", ":lua require('functions/files').create_file_with_telescope()" },
+    { "Files: Open File", ":Telescope find_files" },
+    { "Files: Open Recent", ":Telescope oldfiles" },
+    { "Files: Rename Current File", ":lua require('functions/files').rename_current_file()" },
+    { "Files: Save All Files", ":wa" },
+    { "Files: Save Current File", ":w" },
 
     -- G
+    { "Git: LazyGit", ":LazyGit" },
 
     -- H
 
@@ -36,57 +44,53 @@ function M.Show_custom_palette()
     -- K
 
     -- L
-    { "Lazy (Install and Update)", ":Lazy" },
-    { "LazyVim Extra", ":LazyExtras" },
-    { "LazyGit", ":LazyGit" },
+    { "Lazy: Install and Update Plugins", ":Lazy" },
+    { "Lazy: Extra Commands", ":LazyExtras" },
 
     -- M
-    {
-      "Make Float",
-      ":lua require('toggleterm.terminal').Terminal:new({ direction = 'float' }):toggle()",
-    },
+    { "Music: Play / Pause", ":lua require('functions/now-playing').toggle_play_pause()" },
 
     -- N
-    { "New File", ":enew" },
-    { "New File in Current Path", ":lua require('functions/files').create_new_file()" },
-    { "New File Picking the Path", ":lua require('functions/files').create_file_with_telescope()" },
-    { "New Terminal", ":split | terminal" },
+    { "Notes: Create New Note", ":lua require('functions/notes').new_note()" },
+    { "Notes: Delete Note", ":lua require('functions/notes').delete_note()" },
+    { "Notes: Toggle Notes", ":lua require('functions/notes').toggle_notes()" },
 
     -- O
-    { "Open File", ":Telescope find_files" },
-    { "Open Recent", ":Telescope oldfiles" },
-
-    -- P
-
-    -- Q
-    { "Quit", ":q" },
-    { "Quit All", ":qa" },
-    { "Quit All Without Saving", ":qa!" },
-
-    -- R
-    { "Remove All Comments", ":lua require('functions/coding').remove_all_comments()" },
-    { "Remove Comment at Line", ":lua require('functions/coding').remove_comment_at_line()" },
-    { "Remove Comment Block", ":lua require('functions/coding').remove_comment_block()" },
-    { "Rename Current File", ":lua require('functions/files').rename_current_file()" },
-
-    -- S
-    { "Save All Files", ":wa" },
-    { "Save Current File", ":w" },
-    { "Save Neovim Session", ":lua require('functions/sessions').save_session()" },
-    { "Show Symbols Outline", ":Telescope lsp_document_symbols" },
-
-    -- T
-    { "Toggle Notes", ":lua require('functions/notes').toggle_notes()" },
-    { "TODOs", ":TodoTelescope" },
     {
-      "Toggle Outline",
+      "Outline: Toggle Outline",
       function()
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Space>cs", true, false, true), "m", false)
       end,
     },
 
+    -- P
+
+    -- Q
+    { "Quit: Quit", ":q" },
+    { "Quit: Quit All", ":qa" },
+    { "Quit: Quit All Without Saving", ":qa!" },
+
+    -- R
+
+    -- S
+    { "Sessions: Save Neovim Session", ":lua require('functions/sessions').save_session()" },
+    { "Sessions: Load Neovim Session", ":lua require('functions/sessions').load_session()" },
+    { "Sessions: Delete Neovim Session", ":lua require('functions/sessions').delete_session()" },
+    { "Search: Find Word in Current Directory", ":Telescope live_grep" },
+    { "Search: Find and Replace in Current File", ":lua require('functions/find-replace').find_and_replace()" },
+    { "Search: Show Symbols Outline", ":Telescope lsp_document_symbols" },
+
+    -- T
+    {
+      "Terminal: Make Float",
+      ":lua require('toggleterm.terminal').Terminal:new({ direction = 'float' }):toggle()",
+    },
+    { "Terminal: New Terminal", ":split | terminal" },
+    { "Terminal: Undo Make Float", ":lua require('toggleterm.terminal').Terminal:close_all()" },
+    { "Tasks: TODOs", ":TodoTelescope" },
+
     -- U
-    { "Undo Make Float", ":lua require('toggleterm.terminal').Terminal:close_all()" },
+
     -- V
 
     -- W
@@ -96,8 +100,6 @@ function M.Show_custom_palette()
     -- Y
 
     -- Z
-    { "Load Neovim Session", ":lua require('functions/sessions').load_session()" },
-    { "Delete Neovim Session", ":lua require('functions/sessions').delete_session()" },
   }
 
   local opts = {}
