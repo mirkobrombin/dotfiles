@@ -23,4 +23,17 @@ M.create_file_with_telescope = function()
   })
 end
 
+-- Rename current file
+M.rename_current_file = function()
+  local current_file = vim.fn.expand("%:p")
+  local new_name = vim.fn.input("New file name: ", current_file)
+  if new_name ~= "" and new_name ~= current_file then
+    vim.cmd("saveas " .. new_name)
+    vim.fn.delete(current_file)
+    print("File renamed to " .. new_name)
+  else
+    print("File rename cancelled or invalid name")
+  end
+end
+
 return M

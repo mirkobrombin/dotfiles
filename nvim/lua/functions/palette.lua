@@ -17,6 +17,7 @@ function M.Show_custom_palette()
     { "Delete All Buffers", ":bufdo bd" },
     { "Delete Current File", ":lua vim.fn.delete(vim.fn.expand('%')) | bdelete!" },
     { "Delete Note", ":lua require('functions/notes').delete_note()" },
+    { "Diagnostics", ":Trouble diagnostics toggle" },
 
     -- E
 
@@ -66,6 +67,7 @@ function M.Show_custom_palette()
     { "Remove All Comments", ":lua require('functions/coding').remove_all_comments()" },
     { "Remove Comment at Line", ":lua require('functions/coding').remove_comment_at_line()" },
     { "Remove Comment Block", ":lua require('functions/coding').remove_comment_block()" },
+    { "Rename Current File", ":lua require('functions/files').rename_current_file()" },
 
     -- S
     { "Save All Files", ":wa" },
@@ -75,6 +77,7 @@ function M.Show_custom_palette()
 
     -- T
     { "Toggle Notes", ":lua require('functions/notes').toggle_notes()" },
+    { "TODOs", ":TodoTelescope" },
     {
       "Toggle Outline",
       function()
