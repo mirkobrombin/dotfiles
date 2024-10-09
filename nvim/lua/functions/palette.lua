@@ -81,12 +81,12 @@ function M.Show_custom_palette()
     { "Search: Show Symbols Outline", ":Telescope lsp_document_symbols" },
 
     -- T
+    { "Terminal: New Terminal", ":split | terminal" },
+    { "Terminal: Undo Make Float", ":lua require('toggleterm.terminal').Terminal:close_all()" },
     {
       "Terminal: Make Float",
       ":lua require('toggleterm.terminal').Terminal:new({ direction = 'float' }):toggle()",
     },
-    { "Terminal: New Terminal", ":split | terminal" },
-    { "Terminal: Undo Make Float", ":lua require('toggleterm.terminal').Terminal:close_all()" },
     { "Tasks: TODOs", ":TodoTelescope" },
 
     -- U
