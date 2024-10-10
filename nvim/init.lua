@@ -38,3 +38,4 @@ end
 
 vim.api.nvim_create_user_command("Wtf", ShowShortcuts, {})
 vim.opt.relativenumber = false
+vim.opt.number = true
