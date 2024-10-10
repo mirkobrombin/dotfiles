@@ -14,23 +14,3 @@ vim.api.nvim_set_keymap(
   "<cmd>lua require('functions/palette').Show_custom_palette()<CR>",
   { noremap = true, silent = true }
 )
-
--- Session Management
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ss",
-  "<cmd>lua require('functions/sessions').save_session()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>sl",
-  "<cmd>lua require('functions/sessions').load_session()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>sd",
-  "<cmd>lua require('functions/sessions').delete_session()<CR>",
-  { noremap = true, silent = true }
-)
